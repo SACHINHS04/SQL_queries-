@@ -1,20 +1,10 @@
-import os
 import openai
 import streamlit as st
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
-
-
-
-api_key = os.environ.get("OPENAI_API_KEY")
 
 def generate_query():
-    # Get API key from environment variable
-    #api_key = os.environ.get("OPENAI_API_KEY")
-   # openai.api_key = api_key
+    # Get API key from user
+    api_key = st.text_input("Enter your OpenAI API key:")
+    openai.api_key = api_key
 
     # Get user input
     query_input = st.text_input("Enter a description of the query you want to create:")
